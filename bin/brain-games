@@ -1,3 +1,4 @@
 #!/usr/bin/env php
 <?php
+// вопрос - как сделать так, чтобы в докере запустился этот файл - так и не понял
 echo 'Welcome to the Brain Games!';

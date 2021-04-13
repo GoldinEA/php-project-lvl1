@@ -1,0 +1,22 @@
+{
+  "name": "hexlet/code",
+  "description": "my first composer package",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Evgenij Goldin",
+      "email": "goldin5@yandex.ru"
+    }
+  ],
+  "bin": [
+    "bin/brain-games"
+  ],
+  "require": {
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5"
+  },
+  "autoload": {
+    "files": ["src/php-cli-tools.php"]
+  }
+}

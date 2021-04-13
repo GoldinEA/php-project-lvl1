@@ -1,4 +1,9 @@
-#!/usr/bin/env php
+#! php8-xdebug:latest php
 <?php
-// вопрос - как сделать так, чтобы в докере запустился этот файл - так и не понял
-echo 'Welcome to the Brain Games!';
+require_once '../vendor/autoload.php';
+use function Brain\Games\Cli\line;
+use function Brain\Games\Cli\prompt;
+
+line('Welcome to the Brain Game!');
+$name = prompt('May I have your name?');
+line("Hello, {$name}");

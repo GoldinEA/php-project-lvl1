@@ -11,10 +11,12 @@
   "bin": [
     "bin/brain-games",
     "bin/brain-even",
-    "bin/brain-calc"
+    "bin/brain-calc",
+    "bin/brain-gcd"
   ],
   "require": {
-    "ext-mbstring": "*"
+    "ext-mbstring": "*",
+    "ext-gmp": "*"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.5"

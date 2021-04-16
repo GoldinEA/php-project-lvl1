@@ -13,7 +13,8 @@
     "bin/brain-even",
     "bin/brain-calc",
     "bin/brain-gcd",
-    "bin/bin-progression"
+    "bin/brain-progression",
+    "bin/brain-prime"
   ],
   "require": {
     "ext-mbstring": "*",

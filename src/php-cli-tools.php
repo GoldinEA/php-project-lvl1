@@ -142,6 +142,9 @@ function generateGCD(): array
     ];
 }
 
+/**
+ * @param $name
+ */
 function brainProgressionStart($name)
 {
     line('What number is missing in the progression?');
@@ -151,7 +154,7 @@ function brainProgressionStart($name)
         $answer = prompt('Question: ' . $GCD['QUESTION_STR']);
         $correctAnswer = $GCD['ANSWER_CORRECT'];
         line('Your answer' . $answer);
-        if ($answer === $correctAnswer) {
+        if ((int)$answer === (int)$correctAnswer) {
             line('Correct!');
             $counter++;
         } else {
@@ -162,6 +165,9 @@ function brainProgressionStart($name)
     line("Congratulations, $name!");
 }
 
+/**
+ * @return array
+ */
 function generateProgression()
 {
     $count = rand(5, 10);
@@ -175,7 +181,7 @@ function generateProgression()
     while ($i <= $count) {
         $randNumStart += $randNumProg;
         if ($i === $randNum) {
-            $questionStr .= '...';
+            $questionStr .= ', ...';
             $answerCorrect = $randNumStart;
         } else {
             $questionStr .= ', ' . $randNumStart;
@@ -186,5 +192,41 @@ function generateProgression()
     return [
         'QUESTION_STR' => $questionStr,
         'ANSWER_CORRECT' => $answerCorrect,
+    ];
+}
+
+
+/**
+ * @param $name
+ */
+function brainPrimeStart($name)
+{
+    line('Answer "yes" if given number is prime. Otherwise answer "no".');
+    $counter = 0;
+    while ($counter < 3) {
+        $GCD = generatePrime();
+        $answer = mb_strtolower(prompt('Question: ' . $GCD['QUESTION']));
+        $correctAnswer = $GCD['ANSWER'];
+        line('Your answer' . $answer);
+        if ($answer === $correctAnswer) {
+            line('Correct!');
+            $counter++;
+        } else {
+            line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
+            line("Let's try again, $name!");
+        }
+    }
+    line("Congratulations, $name!");
+}
+
+/**
+ * @return array
+ */
+function generatePrime()
+{
+    $randNum = rand(1, 100);
+    return [
+        'QUESTION' => "$randNum",
+        'ANSWER' => gmp_prob_prime($randNum) === 2 ? 'yes' : 'no'
     ];
 }

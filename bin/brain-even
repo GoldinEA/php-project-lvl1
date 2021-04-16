@@ -1,10 +1,13 @@
 #! php8-xdebug:latest php
 <?php
 require_once '../vendor/autoload.php';
+
+use function Brain\Game\Even\brainEvenStart;
 use function Brain\Games\Cli\line;
 use function Brain\Games\Cli\prompt;
+
 
 line('Welcome to the Brain Games!');
 $name = prompt('May I have your name?');
 line('Hello, '. $name);
-
+brainEvenStart($name);

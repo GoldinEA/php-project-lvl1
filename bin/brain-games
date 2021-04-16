@@ -3,9 +3,8 @@
 require_once '../vendor/autoload.php';
 use function Brain\Games\Cli\line;
 use function Brain\Games\Cli\prompt;
-use function Brain\Games\Cli\brainEvenStart;
 
 line('Welcome to the Brain Game!');
 $name = prompt('May I have your name?');
 line('Hello, '. $name);
-brainEvenStart($name);
+

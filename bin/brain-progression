@@ -2,7 +2,7 @@
 <?php
 require_once '../vendor/autoload.php';
 
-use function Brain\Games\Cli\brainProgressionStart;
+use function Brain\Game\Progression\brainProgressionStart;
 use function Brain\Games\Cli\line;
 use function Brain\Games\Cli\prompt;
 

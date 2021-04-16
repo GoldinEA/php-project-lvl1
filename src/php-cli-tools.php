@@ -115,7 +115,7 @@ function brainGCDStart($name)
     $counter = 0;
     while ($counter < 3) {
         $GCD = generateGCD();
-        $answer = mb_strtolower(prompt('Question: ' . $GCD['QUESTION']));
+        $answer = prompt('Question: ' . $GCD['QUESTION']);
         $correctAnswer = $GCD['ANSWER'];
         line('Your answer' . $answer);
         if ($answer === $correctAnswer) {
@@ -139,5 +139,52 @@ function generateGCD(): array
     return [
         'QUESTION' => "$num1  $num2",
         'ANSWER' => gmp_gcd($num1, $num2)
+    ];
+}
+
+function brainProgressionStart($name)
+{
+    line('What number is missing in the progression?');
+    $counter = 0;
+    while ($counter < 3) {
+        $GCD = generateProgression();
+        $answer = prompt('Question: ' . $GCD['QUESTION_STR']);
+        $correctAnswer = $GCD['ANSWER_CORRECT'];
+        line('Your answer' . $answer);
+        if ($answer === $correctAnswer) {
+            line('Correct!');
+            $counter++;
+        } else {
+            line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
+            line("Let's try again, $name!");
+        }
+    }
+    line("Congratulations, $name!");
+}
+
+function generateProgression()
+{
+    $count = rand(5, 10);
+    $randNum = rand(1, $count);
+    $randNumStart = rand(1, 100);
+    $randNumProg = rand(1, 100);
+    $questionStr = '';
+    $i = 1;
+    $answerCorrect = 0;
+    $questionStr .= $randNumStart;
+    while ($i <= $count) {
+        $randNumStart += $randNumProg;
+        if ($i === $randNum) {
+            $questionStr .= '...';
+            $answerCorrect = $randNumStart;
+        } else {
+            $questionStr .= ', ' . $randNumStart;
+        }
+
+        $i++;
+    }
+    return [
+        'QUESTION_STR' => $questionStr,
+        'ANSWER_CORRECT' => $answerCorrect,
     ];
 }

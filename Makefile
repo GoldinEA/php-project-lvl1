@@ -12,8 +12,7 @@ validate:
 
 lint:
     composer run-script phpcs -- --standard=PSR12 src bin
-    
-    
+
 docker-lint:
 	docker run --rm -v $(PWD):/app -w /app composer:latest make lint
 

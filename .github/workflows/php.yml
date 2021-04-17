@@ -10,7 +10,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: docker-install
-        run: make docker-install
-      - name: docker-lint
-        run: make docker-lint
+      - name: Composer install
+        run: make install
+      - name: Run linter
+        run: make lint
+      - name: Run tests
+        run: make docker-test

@@ -32,7 +32,7 @@ jobs:
     - name: Linter
     - uses: overtrue/phplint@master
       with:
-        path: /src/, /bin/
+        path: /src/ 
         options: --exclude=*.log
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"

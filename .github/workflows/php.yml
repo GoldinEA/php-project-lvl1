@@ -1,10 +1,6 @@
-name: PHP Composer
+name: Build
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: push
 
 jobs:
   build:
@@ -12,13 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: docker-install
-        run: make docker-install
-      - name: docker-lint
-        run: make docker-lint
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Composer install
+        run: make install
+      - name: Run linter
+        run: make lint
 
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    # - name: Run test suite
-    #   run: composer run-script test

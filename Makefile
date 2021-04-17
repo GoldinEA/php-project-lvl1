@@ -18,3 +18,6 @@ docker-lint:
 
 docker-install:
 	docker run --rm -v $(PWD):/app -w /app -u $(id -u) composer:latest composer install
+
+install:
+	composer install

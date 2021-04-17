@@ -29,8 +29,11 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
       
-    - name: Hexlet
-      run: make lint
+    - uses: overtrue/phplint@master
+      with:
+        path: .
+        options: --exclude=*.log
+
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md

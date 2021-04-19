@@ -14,7 +14,7 @@ function brainEvenStart($name)
     $counter = 0;
     while ($counter < 3) {
         $num = rand(0, 100);
-        $correctAnswer = \Brain\Games\Cli\getCorrectAnswer($num);
+        $correctAnswer = getCorrectAnswer($num);
         $answer = mb_strtolower(prompt('Question: ' . $num));
         line('Your answer' . $answer);
         if ($answer === $correctAnswer) {
@@ -23,6 +23,7 @@ function brainEvenStart($name)
         } else {
             line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
             line("Let's try again, $name!");
+            die();
         }
     }
 }

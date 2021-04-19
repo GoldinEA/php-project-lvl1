@@ -13,16 +13,17 @@ function brainCalcStart($name)
     line('What is the result of the expression?');
     $counter = 0;
     while ($counter < 3) {
-        $calc = \Brain\Games\Cli\generateCalc();
+        $calc = generateCalc();
         $answer = mb_strtolower(prompt('Question: ' . $calc['QUESTION']));
         $correctAnswer = $calc['ANSWER'];
         line('Your answer' . $answer);
-        if ($answer === $correctAnswer) {
+        if ($answer == $correctAnswer) {
             line('Correct!');
             $counter++;
         } else {
             line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
             line("Let's try again, $name!");
+            die();
         }
     }
 }

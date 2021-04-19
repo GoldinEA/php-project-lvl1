@@ -1,6 +1,7 @@
 #! php8-xdebug:latest php
 <?php
-require_once '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+
 use function Brain\Games\Cli\line;
 use function Brain\Games\Cli\prompt;
 

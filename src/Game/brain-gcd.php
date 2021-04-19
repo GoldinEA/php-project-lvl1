@@ -13,16 +13,17 @@ function brainGCDStart($name)
     line('Find the greatest common divisor of given numbers.');
     $counter = 0;
     while ($counter < 3) {
-        $GCD = \Brain\Games\Cli\generateGCD();
+        $GCD = generateGCD();
         $answer = prompt('Question: ' . $GCD['QUESTION']);
         $correctAnswer = $GCD['ANSWER'];
         line('Your answer' . $answer);
-        if ($answer === $correctAnswer) {
+        if ($answer == $correctAnswer) {
             line('Correct!');
             $counter++;
         } else {
             line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
             line("Let's try again, $name!");
+            die();
         }
     }
     line("Congratulations, $name!");

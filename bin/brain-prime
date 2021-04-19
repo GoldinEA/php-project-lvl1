@@ -1,6 +1,6 @@
 #! php8-xdebug:latest php
 <?php
-require_once '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use function Brain\Game\Prime\brainPrimeStart;
 use function Brain\Games\Cli\line;

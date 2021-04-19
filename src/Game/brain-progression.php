@@ -13,7 +13,7 @@ function brainProgressionStart($name)
     line('What number is missing in the progression?');
     $counter = 0;
     while ($counter < 3) {
-        $GCD = \Brain\Games\Cli\generateProgression();
+        $GCD = generateProgression();
         $answer = prompt('Question: ' . $GCD['QUESTION_STR']);
         $correctAnswer = $GCD['ANSWER_CORRECT'];
         line('Your answer' . $answer);
@@ -23,6 +23,7 @@ function brainProgressionStart($name)
         } else {
             line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
             line("Let's try again, $name!");
+            die();
         }
     }
     line("Congratulations, $name!");

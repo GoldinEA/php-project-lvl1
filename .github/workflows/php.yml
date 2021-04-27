@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Composer
+        run: composer install
       - name: Run linter
         run: make lint
 

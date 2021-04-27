@@ -3,10 +3,5 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use function Brain\Game\Progression\brainProgressionStart;
-use function Brain\Games\Cli\line;
-use function Brain\Games\Cli\prompt;
 
-line('Welcome to the Brain Game!');
-$name = prompt('May I have your name?');
-line('Hello, '. $name);
-brainProgressionStart($name);
+brainProgressionStart();

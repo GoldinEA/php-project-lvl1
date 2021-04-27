@@ -4,12 +4,11 @@ namespace Brain\Game\Calc;
 
 use function Brain\Games\Cli\line;
 use function Brain\Games\Cli\prompt;
+use function Brain\Games\Cli\startGame;
 
-/**
- * @param $name
- */
-function brainCalcStart($name)
+function brainCalcStart(): void
 {
+    $name = startGame();
     line('What is the result of the expression?');
     $counter = 0;
     while ($counter < 3) {

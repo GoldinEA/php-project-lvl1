@@ -4,12 +4,11 @@ namespace Brain\Game\Even;
 
 use function Brain\Games\Cli\line;
 use function Brain\Games\Cli\prompt;
+use function Brain\Games\Cli\startGame;
 
-/**
- * @param $name
- */
-function brainEvenStart($name)
+function brainEvenStart():void
 {
+    $name = startGame();
     line('Answer "yes" if the number is even, otherwise answer "no".');
     $counter = 0;
     while ($counter < 3) {

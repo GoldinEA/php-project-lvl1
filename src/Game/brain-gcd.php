@@ -4,12 +4,11 @@ namespace Brain\Game\GCD;
 
 use function Brain\Games\Cli\line;
 use function Brain\Games\Cli\prompt;
+use function Brain\Games\Cli\startGame;
 
-/**
- * @param $name
- */
-function brainGCDStart($name)
+function brainGCDStart(): void
 {
+    $name = startGame();
     line('Find the greatest common divisor of given numbers.');
     $counter = 0;
     while ($counter < 3) {

@@ -4,12 +4,11 @@ namespace Brain\Game\Progression;
 
 use function Brain\Games\Cli\line;
 use function Brain\Games\Cli\prompt;
+use function Brain\Games\Cli\startGame;
 
-/**
- * @param $name
- */
-function brainProgressionStart($name)
+function brainProgressionStart(): void
 {
+    $name = startGame();
     line('What number is missing in the progression?');
     $counter = 0;
     while ($counter < 3) {
@@ -32,7 +31,7 @@ function brainProgressionStart($name)
 /**
  * @return array
  */
-function generateProgression()
+function generateProgression(): array
 {
     $count = rand(5, 10);
     $randNum = rand(1, $count);

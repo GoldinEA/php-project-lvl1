@@ -6,14 +6,18 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\startGame;
 
+/**
+ * @return void
+ */
 function brainProgressionStart(): void
 {
     $name = startGame('What number is missing in the progression?');
     $counter = 0;
     while ($counter < 3) {
         $GCD = generateProgression();
-        $answer = prompt('Question: ' . $GCD['QUESTION_STR']);
-        $correctAnswer = $GCD['ANSWER_CORRECT'];
+        $data = generateQuestionAndAnswer($GCD);
+        $answer = prompt('Question: ' . $data['QUESTION_STR']);
+        $correctAnswer = $data['ANSWER_CORRECT'];
         line('Your answer' . $answer);
         if ((int)$answer === (int)$correctAnswer) {
             line('Correct!');
@@ -33,24 +37,28 @@ function brainProgressionStart(): void
 function generateProgression(): array
 {
     $count = rand(5, 10);
-    $randNum = rand(1, $count);
     $randNumStart = rand(1, 100);
     $randNumProg = rand(1, 100);
-    $questionStr = '';
-    $answerCorrect = 0;
-    $questionStr .= $randNumStart;
+    $result = [];
+    $result[0] = $randNumStart;
     for ($i = 1; $i <= $count; $i++) {
-        $randNumStart += $randNumProg;
-        if ($i === $randNum) {
-            $questionStr .= ' ..';
-            $answerCorrect = $randNumStart;
-        } else {
-            $questionStr .= ' ' . $randNumStart;
-        }
+        $result[$i] = $randNumStart += $randNumProg;
     }
+    return $result;
+}
 
+/**
+ * @param $data
+ *
+ * @return array
+ */
+function generateQuestionAndAnswer($data): array
+{
+    $randomNum = rand(0, count($data) - 1);
+    $answer = $data[$randomNum];
+    $data[$randomNum] = '..';
     return [
-        'QUESTION_STR' => $questionStr,
-        'ANSWER_CORRECT' => $answerCorrect,
+        'QUESTION_STR' => implode(' ', $data),
+        'ANSWER_CORRECT' => $answer
     ];
 }

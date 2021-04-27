@@ -45,10 +45,10 @@ function generateProgression()
     while ($i <= $count) {
         $randNumStart += $randNumProg;
         if ($i === $randNum) {
-            $questionStr .= ', ...';
+            $questionStr .= ' ..';
             $answerCorrect = $randNumStart;
         } else {
-            $questionStr .= ', ' . $randNumStart;
+            $questionStr .= ' ' . $randNumStart;
         }
 
         $i++;

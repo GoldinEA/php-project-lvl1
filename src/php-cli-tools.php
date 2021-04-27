@@ -28,6 +28,9 @@ function prompt(string $string): string
 
 /**
  * Начало игры.
+ *
+ * @param $startPhrase
+ *
  * @return string
  */
 function startGame($startPhrase): string

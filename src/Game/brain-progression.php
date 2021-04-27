@@ -2,8 +2,8 @@
 
 namespace Brain\Game\Progression;
 
-use function Brain\Games\Cli\line;
-use function Brain\Games\Cli\prompt;
+use function cli\line;
+use function cli\prompt;
 use function Brain\Games\Cli\startGame;
 
 function brainProgressionStart(): void
@@ -37,7 +37,6 @@ function generateProgression(): array
     $randNumStart = rand(1, 100);
     $randNumProg = rand(1, 100);
     $questionStr = '';
-    $i = 1;
     $answerCorrect = 0;
     $questionStr .= $randNumStart;
     for ($i = 1; $i <= $count; $i++) {

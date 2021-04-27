@@ -2,10 +2,13 @@
 
 namespace Brain\Game\Prime;
 
-use function Brain\Games\Cli\line;
-use function Brain\Games\Cli\prompt;
+use function cli\line;
+use function cli\prompt;
 use function Brain\Games\Cli\startGame;
 
+/**
+ * @return void
+ */
 function brainPrimeStart(): void
 {
     $name = startGame('Answer "yes" if given number is prime. Otherwise answer "no".');
@@ -30,7 +33,7 @@ function brainPrimeStart(): void
 /**
  * @return array
  */
-function generatePrime()
+function generatePrime(): array
 {
     $randNum = rand(1, 100);
     return [

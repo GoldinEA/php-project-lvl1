@@ -2,8 +2,8 @@
 
 namespace Brain\Game\Even;
 
-use function Brain\Games\Cli\line;
-use function Brain\Games\Cli\prompt;
+use function cli\line;
+use function cli\prompt;
 use function Brain\Games\Cli\startGame;
 
 function brainEvenStart(): void

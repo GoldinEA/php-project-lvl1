@@ -2,9 +2,9 @@
 
 namespace Brain\Game\Calc;
 
-use function Brain\Games\Cli\line;
-use function Brain\Games\Cli\prompt;
 use function Brain\Games\Cli\startGame;
+use function cli\line;
+use function cli\prompt;
 
 function brainCalcStart(): void
 {

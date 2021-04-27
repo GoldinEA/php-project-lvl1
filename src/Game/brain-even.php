@@ -8,8 +8,7 @@ use function Brain\Games\Cli\startGame;
 
 function brainEvenStart(): void
 {
-    $name = startGame();
-    line('Answer "yes" if the number is even, otherwise answer "no".');
+    $name = startGame('Answer "yes" if the number is even, otherwise answer "no".');
     $counter = 0;
     while ($counter < 3) {
         $num = rand(0, 100);

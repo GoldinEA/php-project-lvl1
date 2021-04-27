@@ -8,8 +8,7 @@ use function Brain\Games\Cli\startGame;
 
 function brainGCDStart(): void
 {
-    $name = startGame();
-    line('Find the greatest common divisor of given numbers.');
+    $name = startGame('Find the greatest common divisor of given numbers.');
     $counter = 0;
     while ($counter < 3) {
         $GCD = generateGCD();

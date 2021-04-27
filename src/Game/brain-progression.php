@@ -8,8 +8,7 @@ use function Brain\Games\Cli\startGame;
 
 function brainProgressionStart(): void
 {
-    $name = startGame();
-    line('What number is missing in the progression?');
+    $name = startGame('What number is missing in the progression?');
     $counter = 0;
     while ($counter < 3) {
         $GCD = generateProgression();
@@ -41,7 +40,7 @@ function generateProgression(): array
     $i = 1;
     $answerCorrect = 0;
     $questionStr .= $randNumStart;
-    while ($i <= $count) {
+    for ($i = 1; $i <= $count; $i++) {
         $randNumStart += $randNumProg;
         if ($i === $randNum) {
             $questionStr .= ' ..';
@@ -49,9 +48,8 @@ function generateProgression(): array
         } else {
             $questionStr .= ' ' . $randNumStart;
         }
-
-        $i++;
     }
+
     return [
         'QUESTION_STR' => $questionStr,
         'ANSWER_CORRECT' => $answerCorrect,

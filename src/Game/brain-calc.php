@@ -8,8 +8,7 @@ use function Brain\Games\Cli\startGame;
 
 function brainCalcStart(): void
 {
-    $name = startGame();
-    line('What is the result of the expression?');
+    $name = startGame('What is the result of the expression?');
     $counter = 0;
     while ($counter < 3) {
         $calc = generateCalc();

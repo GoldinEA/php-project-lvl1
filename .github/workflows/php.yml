@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Composer
-        run: composer install
+      - name: composer-installer-action
+        uses: nanasess/composer-installer-action@v2.0.1
       - name: Run linter
         run: make lint
 

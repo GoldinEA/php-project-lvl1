@@ -29,7 +29,7 @@ function startGame($startPhrase): string
  */
 function checkAnswer($userAnswer, $correctAnswer, $userName): void
 {
-    line('Your answer' . $userAnswer);
+    line('Your answer ' . $userAnswer);
     if ($userAnswer == $correctAnswer) {
         line('Correct!');
     } else {

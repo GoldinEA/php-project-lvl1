@@ -8,22 +8,37 @@
 
 
 ## brain calc demo
- - мини-игра, где нужно решить рандомный пример.
+ - Игра: "Калькулятор"
+
+   Суть игры в следующем: пользователю показывается случайное математическое выражение, например 35 + 16, которое нужно вычислить и записать правильный ответ.
+
    [![asciicast](https://asciinema.org/a/8BugtC7jXvj8gk2tSExWrH5q4.svg)](https://asciinema.org/a/8BugtC7jXvj8gk2tSExWrH5q4)
 
 ## brain even demo
- - мини-игра, где нужно сказать - четное число или нет.
+ - Игра: "Проверка на чётность"
+   
+   Суть игры в следующем: пользователю показывается случайное число. И ему нужно ответить yes, если число чётное, или no — если нечётное:
+
    [![asciicast](https://asciinema.org/a/fdEShMROLP80CycClj2xwOXLL.svg)](https://asciinema.org/a/fdEShMROLP80CycClj2xwOXLL)
 
 ## brain gcd demo
- - мини-игра, где нужно сказать наибольший общий делитель у чисел.
+ - Игра "НОД"
+
+   Суть игры в следующем: пользователю показывается два случайных числа, например, 25 50. Пользователь должен вычислить и ввести наибольший общий делитель этих чисел.
+
    [![asciicast](https://asciinema.org/a/eTnf8eYcJRw9YcF7v6t5GCKuS.svg)](https://asciinema.org/a/eTnf8eYcJRw9YcF7v6t5GCKuS)
 
 ## brain prime demo
- - мини-игра, где нужно сказать, простое число или нет.
+ - Игра "Простое ли число?"
+   
+   Суть игры в следующем: пользователю показывается число. Пользователь должен угадать, простое число или нет.
+
    [![asciicast](https://asciinema.org/a/cRFyXxLHLloMXqQnk3xoMvc2z.svg)](https://asciinema.org/a/cRFyXxLHLloMXqQnk3xoMvc2z)
 
 ## brain progression demo
- - мини-игра, где нужно подставить недостающее число в прогрессию.
+ - Игра "Арифметическая прогрессия"
+
+   Показываем игроку ряд чисел, образующий арифметическую прогрессию, заменив любое из чисел двумя точками. Игрок должен определить это число.
+   
    [![asciicast](https://asciinema.org/a/zXB0OEoyFGb5ciUtN9enTrCNS.svg)](https://asciinema.org/a/zXB0OEoyFGb5ciUtN9enTrCNS)
    

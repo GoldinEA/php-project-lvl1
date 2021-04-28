@@ -4,7 +4,6 @@ namespace Brain\Game\Calc;
 
 use function Brain\Games\Cli\checkAnswer;
 use function Brain\Games\Cli\startGame;
-use function cli\line;
 use function cli\prompt;
 
 function brainCalcStart(): void

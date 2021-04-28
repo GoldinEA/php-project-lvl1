@@ -2,9 +2,7 @@
 
 namespace Brain\Game\Even;
 
-use function Brain\Game\Calc\generateCalc;
 use function Brain\Games\Cli\checkAnswer;
-use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\startGame;
 

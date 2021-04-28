@@ -3,7 +3,6 @@
 namespace Brain\Game\GCD;
 
 use function Brain\Games\Cli\checkAnswer;
-use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\startGame;
 

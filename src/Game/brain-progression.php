@@ -2,6 +2,7 @@
 
 namespace Brain\Game\Progression;
 
+use function Brain\Games\Cli\checkAnswer;
 use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\startGame;
@@ -12,21 +13,12 @@ use function Brain\Games\Cli\startGame;
 function brainProgressionStart(): void
 {
     $name = startGame('What number is missing in the progression?');
-    $counter = 0;
-    while ($counter < 3) {
+
+    for ($i = 1; $i <= 3; $i++) {
         $GCD = generateProgression();
         $data = generateQuestionAndAnswer($GCD);
         $answer = prompt('Question: ' . $data['QUESTION_STR']);
-        $correctAnswer = $data['ANSWER_CORRECT'];
-        line('Your answer' . $answer);
-        if ((int)$answer === (int)$correctAnswer) {
-            line('Correct!');
-            $counter++;
-        } else {
-            line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
-            line("Let's try again, $name!");
-            die();
-        }
+        checkAnswer($answer, $data['ANSWER_CORRECT'], $name);
     }
     line("Congratulations, $name!");
 }

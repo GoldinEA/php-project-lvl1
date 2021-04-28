@@ -2,6 +2,7 @@
 
 namespace Brain\Game\Calc;
 
+use function Brain\Games\Cli\checkAnswer;
 use function Brain\Games\Cli\startGame;
 use function cli\line;
 use function cli\prompt;
@@ -9,20 +10,10 @@ use function cli\prompt;
 function brainCalcStart(): void
 {
     $name = startGame('What is the result of the expression?');
-    $counter = 0;
-    while ($counter < 3) {
+    for ($i = 1; $i <= 3; $i++) {
         $calc = generateCalc();
         $answer = mb_strtolower(prompt('Question: ' . $calc['QUESTION']));
-        $correctAnswer = $calc['ANSWER'];
-        line('Your answer' . $answer);
-        if ($answer == $correctAnswer) {
-            line('Correct!');
-            $counter++;
-        } else {
-            line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
-            line("Let's try again, $name!");
-            die();
-        }
+        checkAnswer($answer, $calc['ANSWER'], $name);
     }
 }
 

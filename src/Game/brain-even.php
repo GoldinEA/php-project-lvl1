@@ -2,6 +2,8 @@
 
 namespace Brain\Game\Even;
 
+use function Brain\Game\Calc\generateCalc;
+use function Brain\Games\Cli\checkAnswer;
 use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\startGame;
@@ -9,20 +11,11 @@ use function Brain\Games\Cli\startGame;
 function brainEvenStart(): void
 {
     $name = startGame('Answer "yes" if the number is even, otherwise answer "no".');
-    $counter = 0;
-    while ($counter < 3) {
+    for ($i = 1; $i <= 3; $i++) {
         $num = rand(0, 100);
         $correctAnswer = getCorrectAnswer($num);
         $answer = mb_strtolower(prompt('Question: ' . $num));
-        line('Your answer' . $answer);
-        if ($answer === $correctAnswer) {
-            line('Correct!');
-            $counter++;
-        } else {
-            line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
-            line("Let's try again, $name!");
-            die();
-        }
+        checkAnswer($answer, $correctAnswer, $name);
     }
 }
 

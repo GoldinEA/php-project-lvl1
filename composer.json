@@ -30,7 +30,7 @@
   },
   "autoload": {
     "files": [
-      "src/php-cli-tools.php",
+      "src/Engine.php",
       "src/Game/brain-calc.php",
       "src/Game/brain-even.php",
       "src/Game/brain-gcd.php",

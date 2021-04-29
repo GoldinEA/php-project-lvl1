@@ -27,7 +27,7 @@ const VALUE_ARRAY = 0;
  *
  * @return string
  */
-function startGame(string $startPhrase): string
+function startGame(string $startPhrase = 'Welcome to the Brain Games!'): string
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');

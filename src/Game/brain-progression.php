@@ -4,6 +4,8 @@ namespace Brain\Game\Progression;
 
 use function Brain\Games\Cli\gameEngine;
 use const Brain\Games\Cli\COUNT_ITERABLE;
+use const Brain\Games\Cli\START_INDEX_ARRAY;
+use const Brain\Games\Cli\VALUE_ARRAY;
 
 /**
  * Прогрессия. Поиск пропущенных чисел в последовательности чисел.
@@ -14,7 +16,7 @@ function brainProgressionStart(): void
     $questions = array_map(function () {
         $GCD = generateProgression();
         return generateQuestionAndAnswer($GCD);
-    }, array_fill(1, COUNT_ITERABLE, 0));
+    }, array_fill(START_INDEX_ARRAY, COUNT_ITERABLE, VALUE_ARRAY));
     gameEngine('What number is missing in the progression?', $questions);
 }
 

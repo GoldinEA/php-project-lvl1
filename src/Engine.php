@@ -11,6 +11,16 @@ use function cli\prompt;
 const COUNT_ITERABLE = 3;
 
 /**
+ * @const Стартовый ключ массива ответов.
+ */
+const START_INDEX_ARRAY = 1;
+
+/**
+ * @const Черновое заполнение массива с ответами.
+ */
+const VALUE_ARRAY = 0;
+
+/**
  * Начало игры.
  *
  * @param string $startPhrase Стартовая фраза.

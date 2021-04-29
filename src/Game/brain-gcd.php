@@ -4,6 +4,8 @@ namespace Brain\Game\GCD;
 
 use function Brain\Games\Cli\gameEngine;
 use const Brain\Games\Cli\COUNT_ITERABLE;
+use const Brain\Games\Cli\START_INDEX_ARRAY;
+use const Brain\Games\Cli\VALUE_ARRAY;
 
 /**
  * Определение наибольшего общего делителя.
@@ -13,7 +15,7 @@ function brainGCDStart(): void
 {
     $questions = array_map(function () {
         return generateGCD();
-    }, array_fill(1, COUNT_ITERABLE, 0));
+    }, array_fill(START_INDEX_ARRAY, COUNT_ITERABLE, VALUE_ARRAY));
     gameEngine('Find the greatest common divisor of given numbers.', $questions);
 }
 

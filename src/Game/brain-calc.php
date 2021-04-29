@@ -4,6 +4,7 @@ namespace Brain\Game\Calc;
 
 use function Brain\Games\Cli\gameEngine;
 use const Brain\Games\Cli\COUNT_ITERABLE;
+use const Brain\Games\Cli\START_INDEX_ARRAY;
 
 /**
  * Калькулятор. Арифметические выражения, которые необходимо вычислить.
@@ -13,7 +14,7 @@ function brainCalcStart(): void
 {
     $questions = array_map(function () {
         return generateCalc();
-    }, array_fill(1, COUNT_ITERABLE, 0));
+    }, array_fill(START_INDEX_ARRAY, COUNT_ITERABLE, VALUE_ARRAY));
     gameEngine('What is the result of the expression?', $questions);
 }
 

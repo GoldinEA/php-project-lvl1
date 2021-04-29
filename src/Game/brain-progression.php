@@ -40,11 +40,11 @@ function generateProgression(): array
 }
 
 /**
- * @param $data
+ * @param array $data
  *
  * @return array
  */
-function generateQuestionAndAnswer($data): array
+function generateQuestionAndAnswer(array $data): array
 {
     $randomNum = rand(0, count($data) - 1);
     $answer = $data[$randomNum];

@@ -6,7 +6,8 @@ use function Brain\Games\Cli\gameEngine;
 use const Brain\Games\Cli\COUNT_ITERABLE;
 
 /**
- *
+ * Определение четного числа.
+ * @return void
  */
 function brainEvenStart(): void
 {
@@ -17,6 +18,7 @@ function brainEvenStart(): void
 }
 
 /**
+ * Метод генерации вопроса.
  * @return array
  */
 function getCorrectAnswer(): array

@@ -5,6 +5,10 @@ namespace Brain\Game\GCD;
 use function Brain\Games\Cli\gameEngine;
 use const Brain\Games\Cli\COUNT_ITERABLE;
 
+/**
+ * Определение наибольшего общего делителя.
+ * @return void
+ */
 function brainGCDStart(): void
 {
     $questions = array_map(function () {
@@ -14,6 +18,7 @@ function brainGCDStart(): void
 }
 
 /**
+ * Метод генерации вопроса.
  * @return array
  */
 function generateGCD(): array

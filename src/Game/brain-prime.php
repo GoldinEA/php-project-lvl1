@@ -6,6 +6,7 @@ use function Brain\Games\Cli\gameEngine;
 use const Brain\Games\Cli\COUNT_ITERABLE;
 
 /**
+ * Определение простого числа.
  * @return void
  */
 function brainPrimeStart(): void
@@ -17,6 +18,7 @@ function brainPrimeStart(): void
 }
 
 /**
+ * Метод генерации вопроса.
  * @return array
  */
 function generatePrime(): array

@@ -5,6 +5,10 @@ namespace Brain\Game\Calc;
 use function Brain\Games\Cli\gameEngine;
 use const Brain\Games\Cli\COUNT_ITERABLE;
 
+/**
+ * Калькулятор. Арифметические выражения, которые необходимо вычислить.
+ * @return void
+ */
 function brainCalcStart(): void
 {
     $questions = array_map(function () {
@@ -14,6 +18,8 @@ function brainCalcStart(): void
 }
 
 /**
+ * Метод генерации вопроса.
+ *
  * @return array
  */
 function generateCalc(): array

@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 
 /**
- *
+ * @const Количество правильных ответов для победы.
  */
 const COUNT_ITERABLE = 3;
 

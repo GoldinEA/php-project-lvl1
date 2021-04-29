@@ -6,6 +6,7 @@ use function Brain\Games\Cli\gameEngine;
 use const Brain\Games\Cli\COUNT_ITERABLE;
 
 /**
+ * Прогрессия. Поиск пропущенных чисел в последовательности чисел.
  * @return void
  */
 function brainProgressionStart(): void
@@ -18,6 +19,7 @@ function brainProgressionStart(): void
 }
 
 /**
+ * Метод генерации прогрессии.
  * @return array
  */
 function generateProgression(): array
@@ -34,7 +36,8 @@ function generateProgression(): array
 }
 
 /**
- * @param array $data
+ * Метод генерации вопроса.
+ * @param array $data Данные для построения вопроса.
  *
  * @return array
  */

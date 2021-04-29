@@ -42,6 +42,7 @@ function startGame(string $startPhrase = 'Welcome to the Brain Games!'): string
  *
  * @param string $startPhrase Стартовая фраза.
  * @param array  $questions   Массив с вопросами.
+ * @return void
  */
 function gameEngine(string $startPhrase, array $questions): void
 {
@@ -58,6 +59,7 @@ function gameEngine(string $startPhrase, array $questions): void
  * @param string $userAnswer    Ответ игрока.
  * @param string $correctAnswer Правильный ответ.
  * @param string $userName      Пользователь.
+ * @return void
  */
 function checkAnswer(string $userAnswer, string $correctAnswer, string $userName): void
 {

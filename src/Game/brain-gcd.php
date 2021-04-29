@@ -2,18 +2,15 @@
 
 namespace Brain\Game\GCD;
 
-use function Brain\Games\Cli\checkAnswer;
-use function cli\prompt;
-use function Brain\Games\Cli\startGame;
+use function Brain\Games\Cli\gameEngine;
+use const Brain\Games\Cli\COUNT_ITERABLE;
 
 function brainGCDStart(): void
 {
-    $name = startGame('Find the greatest common divisor of given numbers.');
-    for ($i = 1; $i <= 3; $i++) {
-        $GCD = generateGCD();
-        $answer = prompt('Question: ' . $GCD['QUESTION']);
-        checkAnswer($answer, $GCD['ANSWER'], $name);
-    }
+    $questions = array_map(function () {
+        return generateGCD();
+    }, array_fill(1, COUNT_ITERABLE, 0));
+    gameEngine('Find the greatest common divisor of given numbers.', $questions);
 }
 
 /**

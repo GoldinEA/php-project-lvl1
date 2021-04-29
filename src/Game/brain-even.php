@@ -2,27 +2,28 @@
 
 namespace Brain\Game\Even;
 
-use function Brain\Games\Cli\checkAnswer;
-use function cli\prompt;
-use function Brain\Games\Cli\startGame;
+use function Brain\Games\Cli\gameEngine;
+use const Brain\Games\Cli\COUNT_ITERABLE;
 
+/**
+ *
+ */
 function brainEvenStart(): void
 {
-    $name = startGame('Answer "yes" if the number is even, otherwise answer "no".');
-    for ($i = 1; $i <= 3; $i++) {
-        $num = rand(0, 100);
-        $correctAnswer = getCorrectAnswer($num);
-        $answer = mb_strtolower(prompt('Question: ' . $num));
-        checkAnswer($answer, $correctAnswer, $name);
-    }
+    $questions = array_map(function () {
+        return getCorrectAnswer();
+    }, array_fill(1, COUNT_ITERABLE, 0));
+    gameEngine('Answer "yes" if the number is even, otherwise answer "no".', $questions);
 }
 
 /**
- * @param int $num Число.
- *
- * @return string
+ * @return array
  */
-function getCorrectAnswer(int $num): string
+function getCorrectAnswer(): array
 {
-    return $num % 2 === 0 ? 'yes' : 'no';
+    $num = rand(0, 100);
+    return [
+        'QUESTION' => $num,
+        'ANSWER' => $num % 2 === 0 ? 'yes' : 'no'
+    ];
 }

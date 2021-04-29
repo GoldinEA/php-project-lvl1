@@ -2,21 +2,18 @@
 
 namespace Brain\Game\Prime;
 
-use function Brain\Games\Cli\checkAnswer;
-use function cli\prompt;
-use function Brain\Games\Cli\startGame;
+use function Brain\Games\Cli\gameEngine;
+use const Brain\Games\Cli\COUNT_ITERABLE;
 
 /**
  * @return void
  */
 function brainPrimeStart(): void
 {
-    $name = startGame('Answer "yes" if given number is prime. Otherwise answer "no".');
-    for ($i = 1; $i <= 3; $i++) {
-        $GCD = generatePrime();
-        $answer = mb_strtolower(prompt('Question: ' . $GCD['QUESTION']));
-        checkAnswer($answer, $GCD['ANSWER'], $name);
-    }
+    $questions = array_map(function () {
+        return generatePrime();
+    }, array_fill(1, COUNT_ITERABLE, 0));
+    gameEngine('Answer "yes" if given number is prime. Otherwise answer "no".', $questions);
 }
 
 /**

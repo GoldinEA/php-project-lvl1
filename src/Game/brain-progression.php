@@ -2,25 +2,19 @@
 
 namespace Brain\Game\Progression;
 
-use function Brain\Games\Cli\checkAnswer;
-use function cli\line;
-use function cli\prompt;
-use function Brain\Games\Cli\startGame;
+use function Brain\Games\Cli\gameEngine;
+use const Brain\Games\Cli\COUNT_ITERABLE;
 
 /**
  * @return void
  */
 function brainProgressionStart(): void
 {
-    $name = startGame('What number is missing in the progression?');
-
-    for ($i = 1; $i <= 3; $i++) {
+    $questions = array_map(function () {
         $GCD = generateProgression();
-        $data = generateQuestionAndAnswer($GCD);
-        $answer = prompt('Question: ' . $data['QUESTION_STR']);
-        checkAnswer($answer, $data['ANSWER_CORRECT'], $name);
-    }
-    line("Congratulations, $name!");
+        return generateQuestionAndAnswer($GCD);
+    }, array_fill(1, COUNT_ITERABLE, 0));
+    gameEngine('What number is missing in the progression?', $questions);
 }
 
 /**
@@ -50,7 +44,7 @@ function generateQuestionAndAnswer(array $data): array
     $answer = $data[$randomNum];
     $data[$randomNum] = '..';
     return [
-        'QUESTION_STR' => implode(' ', $data),
-        'ANSWER_CORRECT' => $answer
+        'QUESTION' => implode(' ', $data),
+        'ANSWER' => $answer
     ];
 }

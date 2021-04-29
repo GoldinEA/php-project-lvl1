@@ -2,18 +2,15 @@
 
 namespace Brain\Game\Calc;
 
-use function Brain\Games\Cli\checkAnswer;
-use function Brain\Games\Cli\startGame;
-use function cli\prompt;
+use function Brain\Games\Cli\gameEngine;
+use const Brain\Games\Cli\COUNT_ITERABLE;
 
 function brainCalcStart(): void
 {
-    $name = startGame('What is the result of the expression?');
-    for ($i = 1; $i <= 3; $i++) {
-        $calc = generateCalc();
-        $answer = mb_strtolower(prompt('Question: ' . $calc['QUESTION']));
-        checkAnswer($answer, $calc['ANSWER'], $name);
-    }
+    $questions = array_map(function () {
+        return generateCalc();
+    }, array_fill(1, COUNT_ITERABLE, 0));
+    gameEngine('What is the result of the expression?', $questions);
 }
 
 /**
@@ -41,4 +38,5 @@ function generateCalc(): array
                 'ANSWER' => $num1 * $num2
             ];
     }
+    return [];
 }

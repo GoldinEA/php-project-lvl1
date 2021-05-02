@@ -2,10 +2,7 @@
 
 namespace Brain\Game\GCD;
 
-use function Brain\Games\Cli\gameEngine;
-use const Brain\Games\Cli\COUNT_ITERABLE;
-use const Brain\Games\Cli\START_INDEX_ARRAY;
-use const Brain\Games\Cli\VALUE_ARRAY;
+use function Brain\Games\Engine\gameEngine;
 
 /**
  * Определение наибольшего общего делителя.
@@ -13,10 +10,7 @@ use const Brain\Games\Cli\VALUE_ARRAY;
  */
 function brainGCDStart(): void
 {
-    $questions = array_map(function () {
-        return generateGCD();
-    }, array_fill(START_INDEX_ARRAY, COUNT_ITERABLE, VALUE_ARRAY));
-    gameEngine('Find the greatest common divisor of given numbers.', $questions);
+    gameEngine('Find the greatest common divisor of given numbers.', generateGCD());
 }
 
 /**

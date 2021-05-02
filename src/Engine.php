@@ -1,6 +1,6 @@
 <?php
 
-namespace Brain\Games\Cli;
+namespace Brain\Games\Engine;
 
 use function cli\line;
 use function cli\prompt;
@@ -8,17 +8,7 @@ use function cli\prompt;
 /**
  * @const Количество правильных ответов для победы.
  */
-const COUNT_ITERABLE = 3;
-
-/**
- * @const Стартовый ключ массива ответов.
- */
-const START_INDEX_ARRAY = 1;
-
-/**
- * @const Черновое заполнение массива с ответами.
- */
-const VALUE_ARRAY = 0;
+const COUNT_ATTEMPT = 3;
 
 /**
  * Начало игры.
@@ -42,14 +32,17 @@ function startGame(string $startPhrase = 'Welcome to the Brain Games!'): string
  *
  * @param string $startPhrase Стартовая фраза.
  * @param array  $questions   Массив с вопросами.
+ *
  * @return void
  */
 function gameEngine(string $startPhrase, array $questions): void
 {
     $name = startGame($startPhrase);
-    for ($i = 1; $i <= COUNT_ITERABLE; $i++) {
-        $answer = mb_strtolower(prompt('Question: ' . $questions[$i]['QUESTION']));
-        checkAnswer($answer, (string)$questions[$i]['ANSWER'], $name);
+    for ($i = 1; $i <= COUNT_ATTEMPT; $i++) {
+        $answer = mb_strtolower(prompt('Question: ' . $questions['QUESTION']));
+        if (!checkAnswer($answer, (string)$questions['ANSWER'], $name)) {
+            die();
+        }
     }
 }
 
@@ -59,16 +52,18 @@ function gameEngine(string $startPhrase, array $questions): void
  * @param string $userAnswer    Ответ игрока.
  * @param string $correctAnswer Правильный ответ.
  * @param string $userName      Пользователь.
- * @return void
+ *
+ * @return bool
  */
-function checkAnswer(string $userAnswer, string $correctAnswer, string $userName): void
+function checkAnswer(string $userAnswer, string $correctAnswer, string $userName): bool
 {
     line('Your answer ' . $userAnswer);
     if ($userAnswer == $correctAnswer) {
         line('Correct!');
+        return true;
     } else {
         line("'$userAnswer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
         line("Let's try again, $userName!");
-        die();
+        return false;
     }
 }

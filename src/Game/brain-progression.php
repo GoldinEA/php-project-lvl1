@@ -2,26 +2,21 @@
 
 namespace Brain\Game\Progression;
 
-use function Brain\Games\Cli\gameEngine;
-use const Brain\Games\Cli\COUNT_ITERABLE;
-use const Brain\Games\Cli\START_INDEX_ARRAY;
-use const Brain\Games\Cli\VALUE_ARRAY;
+use function Brain\Games\Engine\gameEngine;
 
 /**
  * Прогрессия. Поиск пропущенных чисел в последовательности чисел.
+ *
  * @return void
  */
 function brainProgressionStart(): void
 {
-    $questions = array_map(function () {
-        $GCD = generateProgression();
-        return generateQuestionAndAnswer($GCD);
-    }, array_fill(START_INDEX_ARRAY, COUNT_ITERABLE, VALUE_ARRAY));
-    gameEngine('What number is missing in the progression?', $questions);
+    gameEngine('What number is missing in the progression?', generateQuestionAndAnswer());
 }
 
 /**
  * Метод генерации прогрессии.
+ *
  * @return array
  */
 function generateProgression(): array
@@ -39,17 +34,17 @@ function generateProgression(): array
 
 /**
  * Метод генерации вопроса.
- * @param array $data Данные для построения вопроса.
  *
  * @return array
  */
-function generateQuestionAndAnswer(array $data): array
+function generateQuestionAndAnswer(): array
 {
-    $randomNum = rand(0, count($data) - 1);
-    $answer = $data[$randomNum];
-    $data[$randomNum] = '..';
+    $GCD = generateProgression();
+    $randomNum = rand(0, count($GCD) - 1);
+    $answer = $GCD[$randomNum];
+    $GCD[$randomNum] = '..';
     return [
-        'QUESTION' => implode(' ', $data),
+        'QUESTION' => implode(' ', $GCD),
         'ANSWER' => $answer
     ];
 }

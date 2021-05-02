@@ -2,10 +2,7 @@
 
 namespace Brain\Game\Even;
 
-use function Brain\Games\Cli\gameEngine;
-use const Brain\Games\Cli\COUNT_ITERABLE;
-use const Brain\Games\Cli\START_INDEX_ARRAY;
-use const Brain\Games\Cli\VALUE_ARRAY;
+use function Brain\Games\Engine\gameEngine;
 
 /**
  * Определение четного числа.
@@ -13,10 +10,7 @@ use const Brain\Games\Cli\VALUE_ARRAY;
  */
 function brainEvenStart(): void
 {
-    $questions = array_map(function () {
-        return getCorrectAnswer();
-    }, array_fill(START_INDEX_ARRAY, COUNT_ITERABLE, VALUE_ARRAY));
-    gameEngine('Answer "yes" if the number is even, otherwise answer "no".', $questions);
+    gameEngine('Answer "yes" if the number is even, otherwise answer "no".', getCorrectAnswer());
 }
 
 /**

@@ -2,26 +2,17 @@
 
 namespace Brain\Game\Even;
 
-use function Brain\Games\Engine\gameEngine;
+use function Brain\Games\Engine\game;
 
-/**
- * Определение четного числа.
- * @return void
- */
+
 function brainEvenStart(): void
 {
-    gameEngine('Answer "yes" if the number is even, otherwise answer "no".', getCorrectAnswer());
-}
-
-/**
- * Метод генерации вопроса.
- * @return array
- */
-function getCorrectAnswer(): array
-{
-    $num = rand(0, 100);
-    return [
-        'QUESTION' => $num,
-        'ANSWER' => $num % 2 === 0 ? 'yes' : 'no'
-    ];
+    $generateQuestionAndAnswer = function () {
+        $num = rand(0, 100);
+        return [
+            'question' => $num,
+            'answer' => $num % 2 === 0 ? 'yes' : 'no'
+        ];
+    };
+    game('Answer "yes" if the number is even, otherwise answer "no".', $generateQuestionAndAnswer);
 }

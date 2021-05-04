@@ -5,18 +5,8 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-/**
- * @const Количество правильных ответов для победы.
- */
-const COUNT_ATTEMPT = 3;
+const COUNT_TRUE_QUESTIONS = 2;
 
-/**
- * Начало игры.
- *
- * @param string $startPhrase Стартовая фраза.
- *
- * @return string
- */
 function startGame(string $startPhrase = 'Welcome to the Brain Games!'): string
 {
     line('Welcome to the Brain Game!');
@@ -27,43 +17,18 @@ function startGame(string $startPhrase = 'Welcome to the Brain Games!'): string
 }
 
 
-/**
- * Игровой движок.
- *
- * @param string $startPhrase Стартовая фраза.
- * @param array  $questions   Массив с вопросами.
- *
- * @return void
- */
-function gameEngine(string $startPhrase, array $questions): void
+function game(string $startPhrase, callable $questions): void
 {
     $name = startGame($startPhrase);
-    for ($i = 1; $i <= COUNT_ATTEMPT; $i++) {
-        $answer = mb_strtolower(prompt('Question: ' . $questions['QUESTION']));
-        if (!checkAnswer($answer, (string)$questions['ANSWER'], $name)) {
-            die();
+    for ($i = 0; $i <= COUNT_TRUE_QUESTIONS; $i++) {
+        $arrayQuestions = $questions();
+        $answer = mb_strtolower(prompt('Question: ' . $arrayQuestions['question']));
+        line('Your answer ' . $answer);
+        if ($answer == $arrayQuestions['answer']) {
+            line('Correct!');
+        } else {
+            line("'$answer' is wrong answer ;(. Correct answer was '{$arrayQuestions['answer']}'.");
+            line("Let's try again, $name!");
         }
-    }
-}
-
-/**
- * Проверка ответа.
- *
- * @param string $userAnswer    Ответ игрока.
- * @param string $correctAnswer Правильный ответ.
- * @param string $userName      Пользователь.
- *
- * @return bool
- */
-function checkAnswer(string $userAnswer, string $correctAnswer, string $userName): bool
-{
-    line('Your answer ' . $userAnswer);
-    if ($userAnswer == $correctAnswer) {
-        line('Correct!');
-        return true;
-    } else {
-        line("'$userAnswer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
-        line("Let's try again, $userName!");
-        return false;
     }
 }

@@ -4,7 +4,6 @@ namespace Brain\Game\Calc;
 
 use function Brain\Games\Engine\game;
 
-
 function brainCalcStart(): void
 {
     $generateQuestionAndAnswer = function () {
@@ -32,4 +31,3 @@ function brainCalcStart(): void
     };
     game('What is the result of the expression?', $generateQuestionAndAnswer);
 }
-

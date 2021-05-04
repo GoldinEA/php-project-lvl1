@@ -4,7 +4,6 @@ namespace Brain\Game\Progression;
 
 use function Brain\Games\Engine\game;
 
-
 function brainProgressionStart(): void
 {
     $generateQuestionAndAnswer = function () {

@@ -16,4 +16,3 @@ function brainGCDStart(): void
     };
     game('Find the greatest common divisor of given numbers.', $generateQuestionAndAnswer);
 }
-

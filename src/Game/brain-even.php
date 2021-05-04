@@ -4,7 +4,6 @@ namespace Brain\Game\Even;
 
 use function Brain\Games\Engine\game;
 
-
 function brainEvenStart(): void
 {
     $generateQuestionAndAnswer = function () {

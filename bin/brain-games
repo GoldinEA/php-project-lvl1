@@ -2,8 +2,6 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use function cli\line;
 
-use function Brain\Games\Engine\startGame;
-
-startGame();
-
+line('Welcome to the Brain Game!');

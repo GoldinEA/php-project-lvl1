@@ -7,7 +7,9 @@ use function cli\prompt;
 
 const COUNT_TRUE_QUESTIONS = 2;
 
-function startGame(string $startPhrase = 'Welcome to the Brain Games!'): string
+const START_ITERATION = 0;
+
+function startGame(string $startPhrase): string
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
@@ -20,7 +22,7 @@ function startGame(string $startPhrase = 'Welcome to the Brain Games!'): string
 function game(string $startPhrase, callable $questions): void
 {
     $name = startGame($startPhrase);
-    for ($i = 0; $i <= COUNT_TRUE_QUESTIONS; $i++) {
+    for ($i = START_ITERATION; $i <= COUNT_TRUE_QUESTIONS; $i++) {
         $arrayQuestions = $questions();
         $answer = mb_strtolower(prompt('Question: ' . $arrayQuestions['question']));
         line('Your answer ' . $answer);
@@ -29,6 +31,7 @@ function game(string $startPhrase, callable $questions): void
         } else {
             line("'$answer' is wrong answer ;(. Correct answer was '{$arrayQuestions['answer']}'.");
             line("Let's try again, $name!");
+            die();
         }
     }
 }

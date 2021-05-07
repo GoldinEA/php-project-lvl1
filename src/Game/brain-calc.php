@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
 
 namespace Brain\Game\Calc;
 
-use function Brain\Games\Engine\game;
+use function Brain\Games\Engine\play;
 
 function brainCalcStart(): void
 {
@@ -29,5 +30,5 @@ function brainCalcStart(): void
         }
         return [];
     };
-    game('What is the result of the expression?', $generateQuestionAndAnswer);
+    play('What is the result of the expression?', $generateQuestionAndAnswer);
 }

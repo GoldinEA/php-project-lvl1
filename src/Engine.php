@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Brain\Games\Engine;
 
@@ -7,22 +8,14 @@ use function cli\prompt;
 
 const COUNT_TRUE_QUESTIONS = 2;
 
-const START_ITERATION = 0;
 
-function startGame(string $startPhrase): string
+function play(string $startPhrase, callable $questions): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line('Hello, ' . $name);
     line($startPhrase);
-    return $name;
-}
-
-
-function game(string $startPhrase, callable $questions): void
-{
-    $name = startGame($startPhrase);
-    for ($i = START_ITERATION; $i <= COUNT_TRUE_QUESTIONS; $i++) {
+    for ($i = 0; $i <= COUNT_TRUE_QUESTIONS; $i++) {
         $arrayQuestions = $questions();
         $answer = mb_strtolower(prompt('Question: ' . $arrayQuestions['question']));
         line('Your answer ' . $answer);

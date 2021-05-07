@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
 
 namespace Brain\Game\GCD;
 
-use function Brain\Games\Engine\game;
+use function Brain\Games\Engine\play;
 
 function brainGCDStart(): void
 {
@@ -14,5 +15,5 @@ function brainGCDStart(): void
             'answer' => gmp_gcd($num1, $num2)
         ];
     };
-    game('Find the greatest common divisor of given numbers.', $generateQuestionAndAnswer);
+    play('Find the greatest common divisor of given numbers.', $generateQuestionAndAnswer);
 }

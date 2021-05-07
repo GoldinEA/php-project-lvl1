@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
 
 namespace Brain\Game\Progression;
 
-use function Brain\Games\Engine\game;
+use function Brain\Games\Engine\play;
 
 function brainProgressionStart(): void
 {
@@ -16,17 +17,17 @@ function brainProgressionStart(): void
             'answer' => $answer
         ];
     };
-    game('What number is missing in the progression?', $generateQuestionAndAnswer);
+    play('What number is missing in the progression?', $generateQuestionAndAnswer);
 }
 
 function generateProgression(): array
 {
-    $count = rand(5, 10);
+    $countProgression = rand(5, 10);
     $randNumStart = rand(1, 100);
     $randNumProg = rand(1, 100);
     $result = [];
     $result[0] = $randNumStart;
-    for ($i = 1; $i <= $count; $i++) {
+    for ($i = 1; $i <= $countProgression; $i++) {
         $result[$i] = $randNumStart += $randNumProg;
     }
     return $result;
